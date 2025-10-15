@@ -43,4 +43,34 @@ public class BooksDAO {
 
 		return bookList;
 	}
+	
+	//書籍詳細画面表示用
+	public Book findById(int bookId) {
+	    String sql = "SELECT * FROM BOOKS WHERE BOOK_ID = ?";
+	    try (Connection conn = DBManager.getConnection();
+	         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+	        stmt.setInt(1, bookId);
+	        ResultSet rs = stmt.executeQuery();
+
+	        if (rs.next()) {
+	            Book book = new Book(
+	                rs.getInt("BOOK_ID"),
+	                rs.getString("TITLE"),
+	                rs.getString("AUTHOR"),
+	                rs.getString("GENRE1"),
+	                rs.getString("GENRE2"),
+	                rs.getString("GENRE3"),
+	                rs.getString("SYNOPSIS"),
+	                rs.getString("IMAGE_PATH")
+	            );
+	            return book;
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return null;
+	}
+
 }

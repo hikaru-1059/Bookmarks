@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Book implements Serializable {
 	//フィールド
-	public int book_id; //書籍id
+	public int bookId; //書籍id
 	public String title; //書籍タイトル
 	public String author; //著者名
 	public String genre1; //ジャンル1
@@ -17,9 +17,9 @@ public class Book implements Serializable {
 	public Book() {
 	}
 
-	public Book(int book_id, String title, String author, String genre1, String genre2, String genre3,
+	public Book(int bookId, String title, String author, String genre1, String genre2, String genre3,
 			String synopsis, String imagePath) {
-		this.book_id = book_id;
+		this.bookId = bookId;
 		this.title = title;
 		this.author = author;
 		this.genre1 = genre1;
@@ -30,12 +30,12 @@ public class Book implements Serializable {
 	}
 	
 	//	getter setter
-	public int getBook_id() {
-		return book_id;
+	public int getBookId() {
+		return bookId;
 	}
 
-	public void setBook_id(int book_id) {
-		this.book_id = book_id;
+	public void setBookId(int bookId) {
+		this.bookId = bookId;
 	}
 
 	public String getTitle() {

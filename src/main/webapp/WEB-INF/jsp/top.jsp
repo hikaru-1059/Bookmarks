@@ -17,7 +17,7 @@
 	</form>
 	<c:forEach var="book" items="${bookList}">
 		<div class="book-item">
-			<a href="${pageContext.request.contextPath}/BookDetailServlet?book_id=${book.book_id}" class="book-link">
+			<a href="${pageContext.request.contextPath}/BookDetailServlet?bookId=${book.bookId}" class="book-link">
 				<img src="${pageContext.request.contextPath}${book.imagePath}"
 					alt="${book.title}" width="240">
 			</a>
