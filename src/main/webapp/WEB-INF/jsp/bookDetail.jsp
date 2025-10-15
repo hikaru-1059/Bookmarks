@@ -19,10 +19,8 @@
 	</p>
 	<p>${book.genre1}</p>
 	<p>スコア</p>
-	<form action="#" method="post">
+	<form action="ReviewServlet" method="post">
 		<input type="submit" name="action" value="レビューを見る">
-	</form>
-	<form action="#" method="post">
 		<input type="submit" name="action" value="レビューを投稿する">
 	</form>
 	<p>
