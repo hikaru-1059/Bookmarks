@@ -24,14 +24,14 @@ public class BookListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // EmployeeServiceを使って社員一覧を取得
+        // BookServiceを使って書籍を取得
         List<Book> bookList = service.getAllBooks();
 
         // JSPに渡すためにリクエストスコープにセット
         request.setAttribute("bookList", bookList);
 
         // 表示するJSPの場所を指定
-        RequestDispatcher rd = request.getRequestDispatcher("top.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/jsp/top.jsp");
 
         // JSPに処理を転送して画面を表示
         rd.forward(request, response);
