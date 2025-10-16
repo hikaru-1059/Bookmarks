@@ -15,6 +15,7 @@
 		<input type="text" id="keyword" placeholder="検索キーワード">
 		<input type="submit" value="検索">
 	</form>
+
 	<c:forEach var="book" items="${bookList}">
 		<div class="book-item">
 			<a href="${pageContext.request.contextPath}/BookDetailServlet?bookId=${book.bookId}" class="book-link">
@@ -25,10 +26,21 @@
 			<div class="icons">
 				<button class="btn-read">読書済み</button>
 				<button class="btn-bookmark">ブックマーク</button>
-				<button class="btn-score">スコア</button>
+				<span class="score">
+					<span>★</span>
+					<span>
+						<c:choose>
+							<c:when test="${avgScores[book.bookId] != 0}">
+								${avgScores[book.bookId]}
+							</c:when>
+							<c:otherwise>-</c:otherwise>
+						</c:choose>
+					</span>
+				</span>
 			</div>
 		</div>
 	</c:forEach>
+
 	<footer>
 		<p>©Bookmarks</p>
 	</footer>

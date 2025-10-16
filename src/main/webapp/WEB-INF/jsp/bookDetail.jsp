@@ -18,7 +18,17 @@
 		<strong>ジャンル</strong>
 	</p>
 	<p>${book.genre1}</p>
-	<p>スコア</p>
+	<span class="score">
+		<span>★</span>
+		<span>
+			<c:choose>
+				<c:when test="${avgScores[book.bookId] != 0}">
+					${avgScores[book.bookId]}
+				</c:when>
+				<c:otherwise>-</c:otherwise>
+			</c:choose>
+		</span>
+	</span>
 	<form action="ReviewServlet" method="post">
 		<input type="submit" name="action" value="レビューを見る">
 		<input type="submit" name="action" value="レビューを投稿する">

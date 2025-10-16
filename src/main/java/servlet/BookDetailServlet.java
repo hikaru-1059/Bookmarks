@@ -8,10 +8,10 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import model.Book;
 import service.BookService;
-
 
 /**
  * Servlet implementation class BookDetailServlet
@@ -20,25 +20,29 @@ import service.BookService;
 public class BookDetailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private BookService service = new BookService();
-
+	
+	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		//セッションスコープ準備
+		HttpSession session = request.getSession();
+
 		// パラメータを取得
-        String idStr = request.getParameter("bookId");
-        int bookId = Integer.parseInt(idStr);
+		String idStr = request.getParameter("bookId");
+		int bookId = Integer.parseInt(idStr);
 
-        // DBから詳細情報を取得
-        Book book = service.getBookById(bookId);
+		// DBから詳細情報を取得
+		Book book = service.getBookById(bookId);
 
-        // JSPに渡す
-        request.setAttribute("book", book);
+		//セッションスコープに保存
+		session.setAttribute("book", book);
 
-        // 詳細ページへフォワード
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/bookDetail.jsp");
-        rd.forward(request, response);
+		// 詳細ページへフォワード
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/bookDetail.jsp");
+		rd.forward(request, response);
 	}
 
 	/**
@@ -46,8 +50,8 @@ public class BookDetailServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/bookDetail.jsp");
+		rd.forward(request, response);
 	}
 
 }

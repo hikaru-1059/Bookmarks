@@ -14,6 +14,7 @@ public class BookService {
 		return dao.findAll();
 	}
 	
+	//bookIdをもとに情報を取得
 	public Book getBookById(int bookId) {
 	    return dao.findById(bookId);
 	}
