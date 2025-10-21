@@ -24,7 +24,7 @@ public class ReviewService {
 
 		double total = 0;
 		for (Review r : reviews) {
-			total = r.getScore();
+			total += r.getScore();
 		}
 
 		// 平均値を少数1桁にする

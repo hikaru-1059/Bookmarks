@@ -3,3 +3,77 @@
 .header{
 	
 }
+
+/* 平均スコア表示用（上部の★） */
+.avg-star-box {
+  display: inline-block;
+  position: relative;
+  font-size: 25px;
+  color: #ccc; /* グレーの星 */
+  line-height: 1;
+  margin-right: 5px;
+}
+
+.avg-star-box::before {
+  content: "★★★★★";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--fill, 0%);
+  overflow: hidden;
+  color: gold; /* 塗りつぶしカラー */
+}
+
+.avg-score {
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* ★スライダー＋星プレビュー全体 */
+.star {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* スライダーと★の間の余白 */
+  margin: 20px 0;
+}
+
+/* ★プレビュー部分（グレー地＋金色の重ね） */
+.star-preview {
+  display: inline-block;
+  position: relative;
+  font-size: 25px;
+  color: #ccc; /* ベースのグレー */
+  line-height: 1;
+}
+
+.star-preview::before {
+  content: "★★★★★";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--fill, 0%); /* 塗りつぶし率（JSで更新） */
+  overflow: hidden;
+  color: gold; /* 塗りつぶしカラー（金色） */
+}
+
+/* スコア数値の表示 */
+#scoreText {
+  font-size: 18px;
+  color: #555;
+  min-width: 40px;
+  text-align: center;
+}
+
+/* スライダー自体 */
+input[type="range"] {
+  width: 250px;
+  accent-color: gold; /* スライダーの色（対応ブラウザ） */
+  cursor: pointer;
+}
+
+/* スライダーを少しオシャレに（オプション） */
+input[type="range"]::-webkit-slider-thumb {
+  background-color: gold;
+  border-radius: 50%;
+}

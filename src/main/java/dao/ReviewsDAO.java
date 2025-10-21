@@ -39,4 +39,27 @@ public class ReviewsDAO {
 
 		return reviewList;
 	}
+	
+	//	レビュー登録用
+    public boolean addReview(Review review) {
+        String sql = "INSERT INTO REVIEWS (USER_ID, BOOK_ID, SCORE, COMMENT) VALUES (?, ?, ?, ?)";
+
+        try (Connection conn = DBManager.getConnection();   // DBに接続
+             PreparedStatement pStmt = conn.prepareStatement(sql)) { // SQLを準備
+
+            // プレースホルダに値をセット
+            pStmt.setInt(1, review.getUserId());
+            pStmt.setInt(2, review.getBookId());
+            pStmt.setDouble(3, review.getScore());
+            pStmt.setString(4, review.getComment());
+
+            // 実行結果（影響を受けた行数）を取得
+            int rows = pStmt.executeUpdate();
+            return rows > 0; // 1件以上登録できれば成功
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
