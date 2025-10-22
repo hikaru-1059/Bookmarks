@@ -7,16 +7,20 @@ public class Review {
 	private int bookId;
 	private double score;
 	private String comment;
+	private String userName;
 	
 	//コンストラクタ
 	public Review() {
 		
 	}
 	
-	public Review(int reviewId, int bookId, double score) {
+	public Review(int reviewId, int userId, int bookId, double score, String comment, String userName) {
 		this.reviewId = reviewId;
+		this.userId = userId;
 		this.bookId = bookId;
 		this.score = score;
+		this.comment = comment;
+		this.userName = userName;
 	}
 	
 	//getter setter
@@ -58,5 +62,13 @@ public class Review {
 
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 }

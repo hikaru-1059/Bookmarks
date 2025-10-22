@@ -20,11 +20,13 @@
 	<!--	スコアを0.1刻みの★で表示-->
 	<c:set var="avgScore" value="${avgScores[book.bookId]}" />
 	<div class="avg-star-box" style="--fill: ${(avgScore / 5.0) * 100}%;">
-		★★★★★</div>
-	<span class="avg-score"> <c:choose>
+		★★★★★
+	</div>
+	<span class="avg-score"> 
+		<c:choose>
 			<c:when test="${avgScore != 0}">
-	      ${avgScore}
-	    </c:when>
+      			${avgScore}
+    			</c:when>
 			<c:otherwise>-</c:otherwise>
 		</c:choose>
 	</span>
@@ -34,8 +36,11 @@
 		<c:when test="${not empty reviewList}">
 			<c:forEach var="r" items="${reviewList}">
 				<div class="review-box">
-					<p>${r.userName} さんのレビュー</p>
-					<div class="star-box" style="--fill: ${(r.score / 5.0) * 100}%;">★★★★★</div>
+					<p>${r.userName} さんの評価・感想</p>
+					<div class="star-box" style="--fill: ${(r.score / 5.0) * 100}%;">
+					★★★★★
+					</div>
+					<p>${r.score}</p>
 					<p>${r.comment}</p>
 				</div>
 			</c:forEach>
