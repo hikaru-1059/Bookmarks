@@ -3,8 +3,8 @@
 header, footer{
     background-color: #8497B0;
     color: white;
-    font-family: "French Script MT", cursive;
     text-align: center;
+	padding: 5px;
 }
 
 header {
@@ -15,13 +15,20 @@ footer {
     font-size: 30px;
 }
 
+h1 {
+	text-align: center;
+}
+
+.user-login {
+	text-align: center;
+}
+
 /* 平均スコア表示用の★ */
 .avg-star-box {
   display: inline-block;
   position: relative;
   font-size: 25px;
   color: #ccc; /* グレーの星 */
-  line-height: 1;
   margin-right: 5px;
 }
 
@@ -219,6 +226,10 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+input[type="submit"]:hover {
+	background-color: #B0B0B0;
+}
+
 .search-box {
 	background-color: #F2F2F2;
 	padding: 0;
@@ -245,7 +256,7 @@ input[type="submit"] {
 }
 
 .book-img {
-  margin-top: 60px; /* ← ヘッダーとの間に空白を作る */
+  margin: 60px 150px; /* ← ヘッダーとの間に空白を作る */
 }
 
 .book-detail-container {
@@ -264,8 +275,23 @@ input[type="submit"] {
 
 .book-info {
   max-width: 500px;
+  line-height: 1.6;
 }
 
 .return {
+	display: flex;
 	justify-content: flex-end;
+	margin: 20px;
 }
+
+.reviwe-button {
+	display: flex;
+	justify-content: center;
+	margin: 20px;
+}
+
+.reviwe-button form {
+  display: inline-flex; /* 横並び */
+  gap: 100px; /* ボタン間の余白 */
+}
+

@@ -33,6 +33,7 @@
 		<form action="BookListServlet" method="get" class="return">
 			<input type="submit" value="戻る">
 		</form>
-		<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
+	</div>
+	<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
 </body>
 </html>

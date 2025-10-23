@@ -11,7 +11,6 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/common/header.jsp" />
-	<p>レビュー一覧</p>
 	<div class="book-img">
 	<img src="${pageContext.request.contextPath}${book.imagePath}"
 		alt="${book.title}" width="120">

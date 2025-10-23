@@ -10,7 +10,6 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/common/header.jsp" />
-	<p>レビュー登録</p>
 	<div class="book-img">
 	<img src="${pageContext.request.contextPath}${book.imagePath}"
 		alt="${book.title}" width="120">
