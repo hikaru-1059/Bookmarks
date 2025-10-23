@@ -1,7 +1,18 @@
 @charset "UTF-8";
 
-.header{
-	
+header, footer{
+    background-color: #8497B0;
+    color: white;
+    font-family: "French Script MT", cursive;
+    text-align: center;
+}
+
+header {
+    font-size: 40px;
+}
+
+footer {
+    font-size: 30px;
 }
 
 /* 平均スコア表示用の★ */
@@ -96,4 +107,165 @@ input[type="range"] {
 input[type="range"]::-webkit-slider-thumb {
   background-color: gold;
   border-radius: 50%;
+}
+
+/* 全体の本リストを包むコンテナ */
+.book-container {
+  display: flex;
+  flex-wrap: wrap; /* 折り返しを有効に */
+  justify-content: center; /* 中央寄せ */
+  gap: 40px; /* 本の間の余白 */
+  padding: 40px 20px;
+}
+
+/* 各本のカード部分 */
+.book-item {
+  width: 220px; /* カードの幅を固定（4冊×余白でちょうど良い感じ） */
+  text-align: center;
+}
+
+/* 本の画像 */
+.book-item img {
+  width: 100%;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.book-item img:hover {
+  transform: scale(1.03); /* ホバー時にちょい拡大 */
+}
+
+/* タイトル部分 */
+.book-item p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* 読書済みボタンやスコア部分 */
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* 下揃えでOK */
+  gap: 20px;
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+.icons a,
+.icons span.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50px;
+  box-sizing: border-box;
+}
+
+.icons a img {
+  width: 100%;
+  height: auto;
+  border: #F8CBAD solid 2px;
+  border-radius: 4px;
+}
+
+/* ボタンをシンプルに */
+.btn-read, .btn-bookmark {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.score {
+  color: gold;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.score span:first-child {
+  font-size: 30px; 
+}
+
+.score span {
+  display: block;
+}
+
+.book-img img {
+	border-radius: 4px;
+}
+
+/* 検索ボックス */
+#keyword {
+  width: 450px;   /* 横幅を広くする（デフォルトより大きめ） */
+  height: 25px;   /* 高さを少しアップ */
+  font-size: 16px; /* 文字サイズも少し大きくして見やすく */
+  padding: 5px 10px; /* 文字の余白 */
+  border: 1px solid #999;
+  margin: 8px;
+  border-radius: 4px; /* 角を丸くするなら */
+}
+
+/* 検索ボタン */
+input[type="submit"] {
+  height: 35px;       /* ボックスと高さをそろえる */
+  font-size: 16px;
+  background-color: #A5A5A5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+.search-box {
+	background-color: #F2F2F2;
+	padding: 0;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: flex-end; /* 右寄せ */
+  gap: 20px; /* リンクの間隔 */
+  margin: 10px 40px 0 0; /* 右側に余白を追加 */
+}
+
+.auth-links a {
+  text-decoration: none; /* 下線を消す */
+  color: #666; /* グレー系カラー */
+  font-weight: bold;
+  font-size: 18px;
+  transition: color 0.2s ease;
+  margin: 8px;
+}
+
+.auth-links a:hover {
+  color: #333; /* ホバーで少し濃く */
+}
+
+.book-img {
+  margin-top: 60px; /* ← ヘッダーとの間に空白を作る */
+}
+
+.book-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.book-img img {
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.book-info {
+  max-width: 500px;
+}
+
+.return {
+	justify-content: flex-end;
 }

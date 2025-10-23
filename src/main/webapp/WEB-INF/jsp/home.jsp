@@ -6,43 +6,50 @@
 <head>
 <meta charset="UTF-8">
 <title>Bookmarks</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
+	<div class="auth-links">
 	<a href="#">マイページ</a>
 	<a href="LogoutServlet">ログアウト</a>
-	<header>Bookmarks</header>
+	</div>
+	<jsp:include page="/WEB-INF/jsp/common/header.jsp" />
+	<div class="search-box">
 	<form action="#">
 		<input type="text" id="keyword" placeholder="検索キーワード"> <input
 			type="submit" value="検索">
 	</form>
-	<c:forEach var="book" items="${bookList}">
-		<div class="book-item">
-			<a
-				href="${pageContext.request.contextPath}/BookDetailServlet?bookId=${book.bookId}"
-				class="book-link"> 
-				<img src="${pageContext.request.contextPath}${book.imagePath}"
-				alt="${book.title}" width="240">
-			</a>
-			<p>${book.title}</p>
-			<div class="icons">
-				<button class="btn-read">読書済み</button>
-				<button class="btn-bookmark">ブックマーク</button>
-				<span class="score">
-					<span>★</span> 
-				<span>
-					<c:choose>
-						<c:when test="${avgScores[book.bookId] != 0}">
+	</div>
+	<div class="book-container">
+		<c:forEach var="book" items="${bookList}">
+			<div class="book-item">
+				<a
+					href="${pageContext.request.contextPath}/BookDetailServlet?bookId=${book.bookId}"
+					class="book-link"> <img
+					src="${pageContext.request.contextPath}${book.imagePath}"
+					alt="${book.title}" width="240">
+				</a>
+				<p>${book.title}</p>
+				<div class="icons">
+					<a href="#"> <img
+						src="${pageContext.request.contextPath}/images/icon/read_book.png"
+						alt="読書済み" width="32">
+					</a> <a href="#"> <img
+						src="${pageContext.request.contextPath}/images/icon/favorite_book.png"
+						alt="ブックマーク" width="32">
+					</a> <span class="score"> <span>★</span> <span> <c:choose>
+								<c:when test="${avgScores[book.bookId] != 0}">
 							${avgScores[book.bookId]}
 						</c:when>
-						<c:otherwise>-</c:otherwise>
-					</c:choose>
-				</span>
-				</span>
+								<c:otherwise>-</c:otherwise>
+							</c:choose>
+					</span>
+					</span>
+				</div>
 			</div>
-		</div>
-	</c:forEach>
-	<footer>
-		<p>©Bookmarks</p>
-	</footer>
+		</c:forEach>
+	</div>
+	<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
 </body>
 </html>

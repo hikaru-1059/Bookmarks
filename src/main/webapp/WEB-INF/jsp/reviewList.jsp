@@ -10,20 +10,20 @@
 	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
-	<header>Bookmarks</header>
+	<jsp:include page="/WEB-INF/jsp/common/header.jsp" />
 	<p>レビュー一覧</p>
+	<div class="book-img">
 	<img src="${pageContext.request.contextPath}${book.imagePath}"
 		alt="${book.title}" width="120">
+	</div>
 	<h1>${book.title}</h1>
 	<h2>${book.author}</h2>
 
 	<!--	スコアを0.1刻みの★で表示-->
 	<c:set var="avgScore" value="${avgScores[book.bookId]}" />
 	<div class="avg-star-box" style="--fill: ${(avgScore / 5.0) * 100}%;">
-		★★★★★
-	</div>
-	<span class="avg-score"> 
-		<c:choose>
+		★★★★★</div>
+	<span class="avg-score"> <c:choose>
 			<c:when test="${avgScore != 0}">
       			${avgScore}
     			</c:when>
@@ -36,10 +36,9 @@
 		<c:when test="${not empty reviewList}">
 			<c:forEach var="r" items="${reviewList}">
 				<div class="review-box">
-					<p>${r.userName} さんの評価・感想</p>
+					<p>${r.userName}さんの評価・感想</p>
 					<div class="star-box" style="--fill: ${(r.score / 5.0) * 100}%;">
-					★★★★★
-					</div>
+						★★★★★</div>
 					<p>${r.score}</p>
 					<p>${r.comment}</p>
 				</div>
@@ -53,9 +52,6 @@
 	<form action="BookDetailServlet" method="post">
 		<input type="submit" name="action" value="戻る" class="return">
 	</form>
-
-	<footer>
-		<p>©Bookmarks</p>
-	</footer>
+	<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
 </body>
 </html>

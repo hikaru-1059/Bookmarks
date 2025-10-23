@@ -6,9 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Bookmarks</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
-	<header>Bookmarks</header>
+	<jsp:include page="/WEB-INF/jsp/common/header.jsp" />
 	<h1>ユーザー登録</h1>
 	<c:if test="${not empty msg}">
     		<p class="error-message">${msg}</p>
@@ -39,8 +41,6 @@
 	<form action="BookListServlet" method="get" class="return">
 		<input type="submit" value="戻る">
 	</form>
-	<footer>
-		<p>©Bookmarks</p>
-	</footer>
+	<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
 </body>
 </html>

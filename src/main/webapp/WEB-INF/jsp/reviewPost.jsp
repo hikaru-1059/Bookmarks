@@ -9,10 +9,12 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
-	<header>Bookmarks</header>
+	<jsp:include page="/WEB-INF/jsp/common/header.jsp" />
 	<p>レビュー登録</p>
+	<div class="book-img">
 	<img src="${pageContext.request.contextPath}${book.imagePath}"
 		alt="${book.title}" width="120">
+	</div>
 	<h1>${book.title}</h1>
 	<h2>${book.author}</h2>
 	
@@ -50,9 +52,7 @@
 		<input type="submit" name="action" value="登録" class="post">
 		<input type="submit" name="action" value="戻る" class="return">
 	</form>
-	<footer>
-		<p>©Bookmarks</p>
-	</footer>
+	<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
 	
 	<script>
 	  const slider = document.getElementById("scoreSlider");
