@@ -1,6 +1,7 @@
 package service;
 
 import dao.UserDAO;
+import model.Login;
 import model.User;
 
 public class UserService {
@@ -16,18 +17,18 @@ public class UserService {
 	}
 
 	// ログイン処理
-	public String loginUser(String email, String password) {
+	public Login loginUser(String email, String password) {
 		User user = dao.findByEmail(email);
 
 		if (user == null) {
-			// メールが登録されていない
-			return "email_not_found";
+			return new Login("email_not_found", null);
 		}
+
 		if (!user.getPassword().equals(password)) {
-			// パスワードが間違っている
-			return "password_incorrect";
+			return new Login("password_incorrect", null);
 		}
-		// ログイン成功
-		return "success";
+
+		// 成功したらユーザー情報も返す
+		return new Login("success", user);
 	}
 }

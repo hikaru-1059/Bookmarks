@@ -18,10 +18,10 @@ import service.BookService;
 import service.ReviewService;
 
 /**
- * Servlet implementation class BookListServlet
+ * Servlet implementation class LogoutServlet
  */
-@WebServlet("/BookListServlet")
-public class BookListServlet extends HttpServlet {
+@WebServlet("/LogoutServlet")
+public class LogoutServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private BookService bookService = new BookService();
 	private ReviewService reviewService = new ReviewService();
@@ -31,36 +31,31 @@ public class BookListServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// BookServiceを使って書籍を取得
+		// セッションを取得（存在しなければnull）
+		HttpSession session = request.getSession(false);
+
+		if (session != null) {
+			session.invalidate(); // セッションを破棄
+		}
+
+		// BookServiceを使って書籍を再取得
 		List<Book> bookList = bookService.getAllBooks();
 
 		// JSPに渡すためにリクエストスコープにセット
 		request.setAttribute("bookList", bookList);
-		
+
 		// 本IDごとの平均スコアを保持するMap
-	    Map<Integer, Double> avgScores = new HashMap<>();
+		Map<Integer, Double> avgScores = new HashMap<>();
 
-	    for (Book book : bookList) {
-	        double avg = reviewService.getAverageScore(book.getBookId());
-	        avgScores.put(book.getBookId(), avg);
-	    }
-		
-	    request.setAttribute("avgScores", avgScores);
+		for (Book book : bookList) {
+			double avg = reviewService.getAverageScore(book.getBookId());
+			avgScores.put(book.getBookId(), avg);
+		}
 
-	    //セッションスコープ
-	    HttpSession session = request.getSession(false);
-	    String nextPage;
+		request.setAttribute("avgScores", avgScores);
 
-	    if (session != null && session.getAttribute("loginUser") != null) {
-	        // ログイン中ならログイン後TOPへ
-	        nextPage = "/WEB-INF/jsp/home.jsp";
-	    } else {
-	        // ゲストなら通常TOPへ
-	        nextPage = "/WEB-INF/jsp/top.jsp";
-	    }
-
-		// 表示するJSPの場所を指定
-		RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+		// ログアウト後はトップページ（ログイン前TOP）に戻す
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/jsp/top.jsp");
 		rd.forward(request, response);
 	}
 

@@ -6,7 +6,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Bookmarks</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 	<header>Bookmarks</header>
@@ -21,22 +22,25 @@
 	<p>${book.genre1}</p>
 	<!--	スコアを0.1刻みの★で表示-->
 	<c:set var="avgScore" value="${avgScores[book.bookId]}" />
-		<div class="avg-star-box" style="--fill: ${(avgScore / 5.0) * 100}%;">
-		  ★★★★★
-		</div>
-	<span class="avg-score">
-	  <c:choose>
-	    <c:when test="${avgScore != 0}">
+	<div class="avg-star-box" style="--fill: ${(avgScore / 5.0) * 100}%;">
+		★★★★★</div>
+	<span class="avg-score"> <c:choose>
+			<c:when test="${avgScore != 0}">
 	      ${avgScore}
 	    </c:when>
-	    <c:otherwise>-</c:otherwise>
-	  </c:choose>
+			<c:otherwise>-</c:otherwise>
+		</c:choose>
 	</span>
 	<form action="ReviewServlet" method="post">
-		<input type="hidden" name="bookId" value="${book.bookId}">
+		<input type="hidden" name="bookId" value="${book.bookId}"> 
 		<input type="submit" name="action" value="レビューを見る">
-		<input type="submit" name="action" value="レビューを投稿する">
+
+		<!-- ログインしてる時だけ「レビューを投稿する」ボタンを表示 -->
+		<c:if test="${not empty sessionScope.loginUser}">
+			<input type="submit" name="action" value="レビューを投稿する">
+		</c:if>
 	</form>
+
 	<p>
 		<strong>あらすじ</strong>
 	</p>
