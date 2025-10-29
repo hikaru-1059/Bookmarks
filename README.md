@@ -20,6 +20,7 @@
 - 成功画面による操作フィードバック  
 
 ## 🖼 画面構成（JSP）
+```
 WEB-INF/jsp/
 ├── common/
 │ ├── header.jsp # ヘッダー共通部品
@@ -33,8 +34,10 @@ WEB-INF/jsp/
 ├── reviewList.jsp # レビュー一覧
 ├── reviewPost.jsp # レビュー投稿画面
 └── reviewSuccess.jsp # 投稿完了画面
+```
 
 ## 🗂 ディレクトリ構成
+```
 Bookmarks/
 ├── src/
 │ ├── main/java/
@@ -70,6 +73,7 @@ Bookmarks/
 │ └── WEB-INF/
 │ └── jsp/ # JSPビュー群
 └── build/ # コンパイル済みクラス
+```
 
 ## 💾 データベース構成
 
@@ -83,7 +87,7 @@ Bookmarks/
 | `favorite_books` | お気に入り登録情報（ユーザーIDと書籍IDの組み合わせ） |
 
 ### 🧩 ER 図
-![ER図](./images/ER図.png)
+![ER図](./images/ER/ER図.png)
 
 ### 🧱 主なカラム構成
 #### `user`
@@ -135,13 +139,13 @@ Bookmarks/
 
 ## 👤 作者
 
-**Author:** hikaru-1059
-**Language:** Japanese / 日本語
-職業訓練校での個人開発作品として制作。  
+**Author:** hikaru-1059<br>
+**Language:** Japanese / 日本語<br>
+職業訓練校での個人開発作品として制作。<br>
 今後も改善を続けながら機能を拡張予定です。
 
 ## 📝 ライセンス
 
-本プロジェクトは学習・個人利用目的で自由に利用できます。
+本プロジェクトは学習・個人利用目的で自由に利用できます。<br>
 商用利用の場合は作者への連絡を推奨します。
 
