@@ -92,7 +92,11 @@ Bookmarks/
 | `favorite_books` | お気に入り登録情報（ユーザーIDと書籍IDの組み合わせ） |
 
 ### 🧩 ER 図
-![ER図](readme_images/ER図.png)
+### 🧩 ER 図
+<p align="center">
+  <img src="readme_images/ER図.png" alt="ER図" width="400">
+</p>
+
 
 ### 🧱 主なカラム構成
 #### `user`
