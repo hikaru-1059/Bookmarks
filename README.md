@@ -36,6 +36,11 @@ WEB-INF/jsp/
 └── reviewSuccess.jsp # 投稿完了画面
 ```
 
+### 💻 アプリ画面イメージ
+| トップページ | 書籍詳細ページ | レビュー投稿画面 |
+|:--:|:--:|:--:|
+| ![トップ画面](readme_images/screen_top.png) | ![詳細画面](readme_images/screen_detail.png) | ![投稿画面](readme_images/screen_review.png) |
+
 ## 🗂 ディレクトリ構成
 ```
 Bookmarks/
@@ -87,7 +92,7 @@ Bookmarks/
 | `favorite_books` | お気に入り登録情報（ユーザーIDと書籍IDの組み合わせ） |
 
 ### 🧩 ER 図
-![ER図](./images/ER/ER図.png)
+![ER図](readme_imagesER図.png)
 
 ### 🧱 主なカラム構成
 #### `user`
