@@ -295,3 +295,92 @@ input[type="submit"]:hover {
   gap: 100px; /* ボタン間の余白 */
 }
 
+/* -----------------------
+   ★ レビュー投稿ページ用レイアウト
+-------------------------- */
+
+/* 全体コンテナ */
+.book-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;             /* ← 余白少し狭め */
+  margin: 40px auto;
+  padding: 30px 40px;
+  max-width: 750px;      /* ← 横幅少し小さめに */
+  background-color: #fff;
+}
+
+/* 画像側 */
+.book-image img {
+  width: 180px;           /* ← ここで小さく！ */
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* 情報側 */
+.book-info {
+  flex: 1;
+  text-align: left;        /* ← 左寄せで自然な配置 */
+  padding-top: 10px;
+}
+
+.book-info h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.book-info h2 {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* フォーム部分 */
+.review-form {
+  margin-top: 20px;
+}
+
+.review-form textarea {
+  width: 90%;
+  max-width: 500px;
+  height: 120px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  resize: none;
+  font-size: 14px;
+}
+
+.review-divider {
+  border: none;
+  border-top: 2px solid rgba(132, 151, 176, 0.8); 
+  margin: 30px 0;
+  width: 100%; 
+  position: relative;
+  left: 0;
+  transform: none; 
+}
+
+.avg-score-container {
+	display: flex;
+	justify-content: center; /* ← ここで中央揃え */
+	align-items: center;
+	gap: 8px; /* 星と数値の間の余白 */
+}
+
+.post {
+	display: flex;
+	justify-content: center;
+}
+
+.form-buttons {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  width: 100%;
+  gap: 60px;
+}
+
