@@ -321,7 +321,7 @@ input.return {
 /* 情報側 */
 .book-info {
   flex: 1;
-  text-align: left;        /* ← 左寄せで自然な配置 */
+  text-align: center;        /* ← 左寄せで自然な配置 */
   padding-top: 10px;
 }
 
