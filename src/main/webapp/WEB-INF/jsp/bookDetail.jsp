@@ -53,8 +53,8 @@
 			<p>${book.synopsis}</p>
 		</div>
 	</div>
-	<form action="BookListServlet" method="get" class="return">
-		<input type="submit" value="戻る">
+	<form action="BookListServlet" method="get">
+		<input type="submit" value="戻る" class="return">
 	</form>
 	<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
 </body>

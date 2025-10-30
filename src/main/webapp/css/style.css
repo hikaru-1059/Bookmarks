@@ -278,10 +278,10 @@ input[type="submit"]:hover {
   line-height: 1.6;
 }
 
-.return {
+input.return {
 	display: flex;
 	justify-content: flex-end;
-	margin: 20px;
+	margin: 40px 40px 20px auto;
 }
 
 .reviwe-button {
@@ -384,3 +384,39 @@ input[type="submit"]:hover {
   gap: 60px;
 }
 
+.book-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.book-score {
+  display: flex;
+  justify-content: center;
+}
+
+.book-img img{
+  width: 160px;
+}
+
+.review-list {
+	display: flex;
+	flex-direction: column;  /* 縦に積む */
+	align-items: center;     /* 横方向の中央揃え */
+	justify-content: center;
+}
+
+.review-box {
+	border: 1px solid #666;
+	border-radius: 5px;
+	margin: 5px;
+	padding: 5px;
+	width: 600px;
+}
+
+.review-score {
+	display: flex;
+	align-items: center;
+}
